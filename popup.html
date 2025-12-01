@@ -1,23 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Website Blocker</title>
   <link rel="stylesheet" href="popup.css">
 </head>
+
 <body>
   <div class="container">
     <h1>Website Blocker</h1>
-    
+
     <!-- Block current tab button -->
     <button id="blockCurrentBtn" class="btn btn-primary">
       🚫 Block Current Tab
     </button>
-    
+
+    <!-- Manual website input -->
+    <div class="manual-input">
+      <input type="text" id="websiteInput" placeholder="Enter website to block (e.g., facebook.com)"
+        class="input-field" />
+      <button id="addWebsiteBtn" class="btn btn-secondary">
+        ➕ Add to Block List
+      </button>
+    </div>
+
+    <!-- Manual website unblock -->
+    <div class="manual-input">
+      <input type="text" id="unblockInput" placeholder="Enter website to unblock (e.g., facebook.com)"
+        class="input-field" />
+      <button id="removeWebsiteBtn" class="btn btn-danger">
+        ➖ Remove from Block List
+      </button>
+    </div>
+
     <!-- Status message -->
     <div id="status" class="status"></div>
-    
+
     <!-- List of blocked sites -->
     <div class="blocked-sites">
       <h2>Blocked Sites</h2>
@@ -25,7 +45,8 @@
       <p id="emptyMessage" class="empty-message">No sites blocked yet</p>
     </div>
   </div>
-  
+
   <script src="popup.js"></script>
 </body>
+
 </html>

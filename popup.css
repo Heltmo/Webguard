@@ -57,6 +57,65 @@ h2 {
   transform: translateY(0);
 }
 
+.btn-secondary {
+  background: #28a745;
+  color: white;
+  margin-top: 8px;
+}
+
+.btn-secondary:hover {
+  background: #218838;
+  transform: translateY(-1px);
+  box-shadow: 0 2px 8px rgba(40, 167, 69, 0.3);
+}
+
+.btn-secondary:active {
+  transform: translateY(0);
+}
+
+.btn-danger {
+  background: #ff6b35;
+  color: white;
+  margin-top: 8px;
+}
+
+.btn-danger:hover {
+  background: #ff5722;
+  transform: translateY(-1px);
+  box-shadow: 0 2px 8px rgba(255, 107, 53, 0.3);
+}
+
+.btn-danger:active {
+  transform: translateY(0);
+}
+
+
+/* Manual input section */
+.manual-input {
+  margin-top: 16px;
+}
+
+.input-field {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 13px;
+  font-family: inherit;
+  transition: border-color 0.2s;
+}
+
+.input-field:focus {
+  outline: none;
+  border-color: #28a745;
+  box-shadow: 0 0 0 3px rgba(40, 167, 69, 0.1);
+}
+
+.input-field::placeholder {
+  color: #999;
+}
+
+
 /* Status message */
 .status {
   margin-top: 12px;
