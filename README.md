@@ -1,85 +1,114 @@
-# Website Blocker Chrome Extension
+WebGuard – Chrome Website Blocker (Manifest V3)
 
-A minimal Chrome extension that blocks distracting websites using declarativeNetRequest API (Manifest V3).
+WebGuard is a minimal, fast Chrome extension that blocks distracting websites using Chrome’s modern declarativeNetRequest API (Manifest V3).
+It stores your block list in chrome.storage.sync, so your settings follow you across devices.
 
-## Features
+Features
 
-- 🚫 Blocks Pornsites by default
-- ➕ Block any website with one click
-- 💾 Syncs blocked sites across devices
-- 🎯 Simple, clean interface
-- ⚡ Uses modern Manifest V3
+🚫 Blocks porn and distracting sites by default
 
-## Installation
+➕ Block any website with one click
 
-1. Download or clone this repository
-2. Open Chrome and go to `chrome://extensions/`
-3. Enable "Developer mode" (toggle in top right)
-4. Click "Load unpacked"
-5. Select the `website-blocker` folder
-6. The extension is now installed!
+🔄 Syncs blocked sites across all Chrome browsers
 
-## Usage
+⚡ Real-time rule updates using dynamic DNR
 
-### Block the Current Tab
-1. Click the extension icon
-2. Click "Block Current Tab"
-3. The site will be added to your block list and the tab will close
+🎯 Clean, simple popup UI
 
-### Unblock a Site
-1. Click the extension icon
-2. Find the site in the blocked sites list
-3. Click the "✕" button next to it
+🔐 Secure, efficient, Manifest V3 architecture
 
-### View Blocked Sites
-- Click the extension icon to see all currently blocked sites
+Installation
 
-## Default Blocked Sites
+Download or clone this repository.
 
-- facebook.com
-- youtube.com
+Open Chrome → chrome://extensions/
 
-## File Structure
+Enable Developer mode (top-right).
 
-```
-website-blocker/
-├── manifest.json       # Extension configuration
-├── background.js       # Service worker for managing rules
-├── popup.html         # Extension popup UI
-├── popup.js           # Popup logic
-├── popup.css          # Popup styles
-└── rules.json         # Static rules file (empty, uses dynamic rules)
-```
+Click Load unpacked.
 
-## How It Works
+Select the Webguard folder.
 
-1. **declarativeNetRequest**: Uses Chrome's efficient blocking API
-2. **Dynamic Rules**: Updates blocking rules in real-time
-3. **chrome.storage.sync**: Saves blocked sites across devices
-4. **Service Worker**: Background script manages blocking logic
+The extension is now installed.
 
-## Permissions
+Usage
+Block the Current Tab
 
-- `declarativeNetRequest`: Block websites
-- `declarativeNetRequestFeedback`: Read current rules
-- `storage`: Save blocked sites list
-- `activeTab`: Get current tab URL
-- `host_permissions`: Access all URLs for blocking
+Click the WebGuard icon.
 
-## Notes
+Click Block Current Tab.
 
-- Icons are referenced but not included (extension will use default Chrome icon)
-- To add custom icons, create 16x16, 48x48, and 128x128 PNG files
-- Blocked sites are synced via Chrome sync if enabled
+The site is added to the block list and immediately blocked.
 
-## Customization
+Unblock a Site
 
-To change default blocked sites, edit `DEFAULT_BLOCKED_SITES` in `background.js`:
+Click the WebGuard icon.
 
-```javascript
-const DEFAULT_BLOCKED_SITES = ['facebook.com', 'youtube.com', 'twitter.com'];
-```
+In the list, click ✕ next to the domain.
 
-## License
+View All Blocked Sites
 
-MIT License - Feel free to modify and use!
+Just open the popup — your synced block list is shown instantly.
+
+Default Blocked Sites
+
+facebook.com
+
+youtube.com
+
+(You can customize or remove these in background.js)
+
+File Structure
+Webguard/
+├── manifest.json      # Extension manifest (MV3)
+├── background.js      # Service worker: DNR rules + sync logic
+├── popup.html         # Popup UI
+├── popup.js           # Popup interactions
+├── popup.css          # Popup styling
+├── icon16.png
+├── icon48.png
+├── icon128.png
+└── rules.json         # (Optional) placeholder for static rules
+
+How It Works
+🧩 DeclarativeNetRequest (DNR)
+
+Blocks sites using Chrome’s efficient MV3 rules engine
+
+No content scripts needed for basic blocking
+
+🔧 Dynamic Rules
+
+When you add/remove a site, WebGuard updates rules instantly
+
+💾 chrome.storage.sync
+
+Syncs all blocked sites across your Chrome profile
+
+🛠 Service Worker
+
+Runs in the background
+
+Manages syncing, rule updates, and popup communication
+
+Permissions Explained
+Permission	Reason
+declarativeNetRequest	Block websites via rules
+declarativeNetRequestFeedback	Read/update rules
+storage	Save block list
+activeTab	Get the URL of the current tab
+host_permissions	Required to block arbitrary domains
+Customization
+Change default blocked sites:
+
+Edit this line in background.js:
+
+const DEFAULT_BLOCKED_SITES = ['facebook.com', 'youtube.com'];
+
+Add your own icons:
+
+Replace icon16.png, icon48.png, icon128.png with your preferred PNGs.
+
+License
+
+MIT — free to modify and use.
